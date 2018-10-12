@@ -1,0 +1,10 @@
+---
+
+- import_tasks: nodejs.yml
+  tags:
+    - homebridge
+    - nodejs
+
+- import_tasks: homebridge.yml
+  tags:
+    - homebridge

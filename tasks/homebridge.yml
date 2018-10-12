@@ -1,0 +1,70 @@
+---
+
+- name: install homebridge dependencies
+  apt:
+    name:
+      - build-essential
+      - libavahi-compat-libdnssd-dev
+    state: present
+
+- name: install homebridge via npm
+  npm:
+    global: true
+    production: true
+    name: homebridge
+    version: "{{ homebridge_version }}"
+    state: present
+  environment:
+    NPM_CONFIG_UNSAFE_PERM: "true"
+
+- name: add homebridge user
+  user:
+    name: homebridge
+    home: "{{ homebridge_dir }}"
+    createhome: true
+    comment: "HomeBridge"
+
+- name: add homebridge configuration
+  template:
+    src: ".{{ item }}.j2"
+    dest: "{{ item }}"
+    owner: homebridge
+    group: homebridge
+    mode: 0444
+  with_items:
+    - /var/homebridge/config.json
+  notify:
+    - restart homebridge
+
+- name: add homebridge systemd unit and defaults
+  template:
+    src: ".{{ item }}.j2"
+    dest: "{{ item }}"
+    owner: root
+    group: root
+    mode: 0444
+  with_items:
+    - "{{ homebridge_defaults }}"
+    - /etc/systemd/system/homebridge.service
+  notify:
+    - restart homebridge
+
+- name: install homebridge plugins
+  npm:
+    name: "{{ item.name }}"
+    version: "{{ item.version|default('') }}"
+    global: true
+    production: true
+    state: present
+  with_items: "{{ homebridge_plugins }}"
+  environment:
+    NPM_CONFIG_UNSAFE_PERM: "true"
+  when: homebridge_plugins|length > 0
+  notify:
+    - restart homebridge
+
+- name: start homebridge
+  systemd:
+    name: homebridge
+    state: started
+    enabled: true

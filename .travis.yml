@@ -1,0 +1,13 @@
+---
+
+language: python
+
+services:
+  - docker
+
+install:
+  - pip install -r requirements.txt
+  - pip install molecule docker-py
+
+script:
+  - molecule --debug test

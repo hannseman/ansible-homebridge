@@ -1,0 +1,7 @@
+---
+
+- name: restart homebridge
+  systemd:
+    name: homebridge
+    state: restarted
+    daemon_reload: true

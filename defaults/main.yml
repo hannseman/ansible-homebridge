@@ -1,0 +1,18 @@
+---
+
+homebridge_version: 0.4.45
+homebridge_dir: /var/homebridge
+homebridge_bin: /usr/bin/homebridge
+homebridge_defaults: /etc/default/homebridge
+homebridge_port: 51826
+homebridge_name: Homebridge
+homebridge_username: CC:22:3D:E3:CE:30
+homebridge_pin: 123-45-678
+homebridge_plugins: []
+homebridge_accessories: []
+homebridge_platforms: []
+homebridge_nodejs_binary: /usr/bin/node
+homebridge_nodejs_version: "8.x"
+homebridge_debug: false
+homebridge_systemd_part_of_service:
+homebridge_enable_cap_net_raw: false

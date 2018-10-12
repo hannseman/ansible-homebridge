@@ -1,0 +1,29 @@
+# {{ ansible_managed }}
+
+[Unit]
+Description=Node.js HomeKit Server
+Wants=network-online.target
+After=syslog.target network-online.target
+{% if homebridge_systemd_part_of_service %}
+PartOf={{ homebridge_systemd_part_of_service }}
+{% endif %}
+
+[Service]
+Type=simple
+User=homebridge
+EnvironmentFile={{ homebridge_defaults }}
+ExecStart={{ homebridge_bin }} $HOMEBRIDGE_OPTS
+Restart=on-failure
+RestartSec=10
+KillMode=process
+
+PrivateDevices=true
+ProtectSystem=full
+ProtectHome=true
+NoNewPrivileges=true
+{% if homebridge_enable_cap_net_raw %}
+AmbientCapabilities=CAP_NET_RAW
+{% endif %}
+
+[Install]
+WantedBy=multi-user.target

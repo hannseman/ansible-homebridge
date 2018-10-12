@@ -1,0 +1,26 @@
+---
+
+galaxy_info:
+  role_name: homebridge
+  author: Hannes Ljungberg
+  description: Setup and configure Homebridge.
+  license: MIT
+  min_ansible_version: 2.7.0
+  platforms:
+    - name: Ubuntu
+      versions:
+        - all
+    - name: Debian
+      versions:
+        - all
+  galaxy_tags:
+    - homebridge
+    - homekit
+    - rpi
+    - raspberry
+    - pi
+    - homeautomation
+    - smarthome
+    - automation
+
+dependencies: []

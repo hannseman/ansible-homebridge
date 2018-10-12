@@ -1,0 +1,33 @@
+---
+- name: install dependencies
+  apt:
+    name:
+      - gnupg2
+      - apt-transport-https
+      - libcap2-bin
+
+- name: add Nodesource apt key
+  apt_key:
+    url: https://keyserver.ubuntu.com/pks/lookup?op=get&fingerprint=on&search=0x1655A0AB68576280
+    id: "68576280"
+    state: present
+
+- name: add NodeSource repositories for Node.js
+  apt_repository:
+    repo: "{{ item }}"
+    state: present
+  with_items:
+    - "deb https://deb.nodesource.com/node_{{ homebridge_nodejs_version }} {{ ansible_distribution_release }} main"
+    - "deb-src https://deb.nodesource.com/node_{{ homebridge_nodejs_version }} {{ ansible_distribution_release }} main"
+
+- name: ensure Node.js and npm are installed
+  apt:
+    name: "nodejs={{ homebridge_nodejs_version|regex_replace('x', '') }}*"
+    state: present
+
+- name: grant node binary cap_net_raw privileges
+  capabilities:
+    path: "{{ homebridge_nodejs_binary }}"
+    capability: cap_net_raw+eip
+    state: present
+  when: homebridge_enable_cap_net_raw
