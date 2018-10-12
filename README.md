@@ -1,5 +1,9 @@
 # ansible-homebridge
 
+[![Ansible Role](https://img.shields.io/ansible/role/30550.svg)](https://galaxy.ansible.com/hannseman/homebridge) 
+[![Build Status](https://travis-ci.com/hannseman/ansible-homebridge.svg?branch=master)](https://travis-ci.com/hannseman/ansible-homebridge)
+
+
 This role will setup and configure a [Homebridge](https://github.com/nfarina/homebridge) installation. 
 
 It will install Node.js. 
