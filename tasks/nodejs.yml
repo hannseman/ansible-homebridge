@@ -30,4 +30,4 @@
     path: "{{ homebridge_nodejs_binary }}"
     capability: cap_net_raw+eip
     state: present
-  when: homebridge_enable_cap_net_raw
+  when: homebridge_enable_cap_net_raw|bool

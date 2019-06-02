@@ -7,7 +7,7 @@ services:
 
 install:
   - pip install -r requirements.txt
-  - pip install molecule docker-py
+  - pip install testinfra molecule docker
 
 script:
   - molecule --debug test
