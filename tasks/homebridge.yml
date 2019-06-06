@@ -26,13 +26,11 @@
 
 - name: add homebridge configuration
   template:
-    src: ".{{ item }}.j2"
-    dest: "{{ item }}"
+    src: "./var/homebridge/config.json.j2"
+    dest: "{{ homebridge_dir }}/config.json"
     owner: homebridge
     group: homebridge
     mode: 0444
-  with_items:
-    - /var/homebridge/config.json
   notify:
     - restart homebridge
 
