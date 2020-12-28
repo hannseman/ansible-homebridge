@@ -17,18 +17,6 @@
   environment:
     NPM_CONFIG_UNSAFE_PERM: "true"
 
-- name: install homebridge ui via npm
-  npm:
-    global: true
-    production: true
-    name: homebridge-config-ui-x
-    version: "{{ homebridge_ui_version }}"
-    state: present
-  environment:
-    NPM_CONFIG_UNSAFE_PERM: "true"
-  when:
-    homebridge_ui | bool
-
 - name: add homebridge user
   user:
     name: homebridge

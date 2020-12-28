@@ -38,16 +38,7 @@ homebridge_name: Homebridge
 homebridge_username: CC:22:3D:E3:CE:30
 homebridge_pin: 123-45-678
 homebridge_accessories: []
-homebridge_platforms:
-  - platform: "config"
-    name: "Config"
-    port: 8080
-    sudo: false
-    log:
-      method: "systemd"
-      service: "homebridge"
-homebridge_ui: yes
-homebridge_ui_version: 4.36.0
+homebridge_platforms: []
 ```
 
 ## Example Playbook
