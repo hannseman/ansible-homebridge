@@ -7,7 +7,6 @@ This role will setup and configure a [Homebridge](https://github.com/nfarina/hom
 
 It will install Node.js.
 It will run homebridge in a secured systemd service as the user `homebridge`.
-It will if enabled install the homebridge [ui](https://github.com/oznu/homebridge-config-ui-x).
 It will allow you to configure your accessories and platforms using yaml.
 
 ## Variables
