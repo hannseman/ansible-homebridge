@@ -4,9 +4,8 @@ dependency:
 driver:
   name: docker
 lint: |
-  yamllint .
+  set -e
   ansible-lint
-  flake8
 platforms:
   - name: ansible-homebridge
     image: minimum2scp/systemd-stretch:latest
