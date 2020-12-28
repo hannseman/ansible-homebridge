@@ -7,7 +7,7 @@ services:
 
 install:
   - pip install -r requirements.txt
-  - pip install testinfra molecule docker
+  - pip install testinfra ansible-lint molecule molecule-docker docker
 
 script:
   - molecule --debug test
