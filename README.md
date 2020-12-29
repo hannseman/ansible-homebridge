@@ -24,6 +24,8 @@ homebridge_defaults: /etc/default/homebridge
 homebridge_port: 51826
 # If homebridge should run in debug mode
 homebridge_debug: false
+# Insecure mode toggle needed by the homebridge UI for the accessories view
+homebridge_insecure_mode: false
 # Node.js version to run homebridge under
 homebridge_nodejs_version: "14.x"
 # Path to Node.js
