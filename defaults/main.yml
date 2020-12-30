@@ -14,5 +14,6 @@ homebridge_platforms: []
 homebridge_nodejs_binary: /usr/bin/node
 homebridge_nodejs_version: "14.x"
 homebridge_debug: false
+homebridge_insecure_mode: false
 homebridge_systemd_part_of_service:
 homebridge_enable_cap_net_raw: false
