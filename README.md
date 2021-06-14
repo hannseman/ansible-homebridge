@@ -13,7 +13,7 @@ It will allow you to configure your accessories and platforms using yaml.
 
 ```yaml
 # The homebridge version to run
-homebridge_version: 1.2.5
+homebridge_version: 1.3.4
 # The homebridge user home directory
 homebridge_dir: /var/homebridge
 # Path to homebridge
@@ -40,6 +40,8 @@ homebridge_username: CC:22:3D:E3:CE:30
 homebridge_pin: 123-45-678
 homebridge_accessories: []
 homebridge_platforms: []
+homebridge_bind: ["eth0"]
+homebridge_advertiser: "ciao"
 ```
 
 ## Example Playbook
