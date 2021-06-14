@@ -5,6 +5,8 @@ homebridge_dir: /var/homebridge
 homebridge_bin: /usr/bin/homebridge
 homebridge_defaults: /etc/default/homebridge
 homebridge_port: 51826
+homebridge_advertiser: "ciao"
+homebridge_bind: ["eth0"]
 homebridge_name: Homebridge
 homebridge_username: CC:22:3D:E3:CE:30
 homebridge_pin: 123-45-678
